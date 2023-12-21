@@ -2,8 +2,8 @@
 <?php include"db.php";?>
 
 <?php
-    if($_POST['btn']){
-        var_dump($_POST);
+    if(isset($_POST['btn'])){
+
         $username = santString($_POST['username']);
         $fullname = santString($_POST['full_name']);
         $email = santEmail($_POST['email']);
@@ -11,13 +11,13 @@
         $password = $_POST['password'];
         $gender = $_POST['radioGroup'];
         
-        if(!requiredInput($username) && !minInput($username, 5)){
-            $failed = "Invalid Username";
+        if(!(requiredInput($username) && minInput($username, 5))){
+            $failed = "Invaid Fullname";
         }
         else{
 
-            if(!requiredInput($fullname) && !minInput($fullname, 5)){
-                $failed = "Invaid Fullname";
+            if(!(requiredInput($fullname) && minInput($fullname, 5))){
+                $failed = "Invalid Username";
             }
             else{
             
@@ -26,12 +26,12 @@
                 }
                 else{
             
-                    if(!minInput($phonenumber, 8) && !maxInput($phonenumber, 12)){
-                        $failed = "Invalid Phone Number";
+                    if(!(minInput($phonenumber, 8) && maxInput($phonenumber, 12))){
+                        $failed = "Phone number Must be between 8 to 12 Number";
                     }
                     else{
             
-                        if(!minInput($password, 8) && !maxInput($password, 20)){
+                        if(!(minInput($password, 8) && maxInput($password, 20))){
                             $failed = "Password Must be between 8 to 20 character";
                         }
                         else {
@@ -57,12 +57,6 @@
                     }
                 }
             }
-        }
-        if(!$failed){
-            echo "<script>alert('$success')</script>";
-        }
-        else {
-            echo "<script>alert('$failed')</script>";
         }
     }
 ?>
