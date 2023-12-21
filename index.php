@@ -27,7 +27,7 @@
                 else{
             
                     if(!(minInput($phonenumber, 8) && maxInput($phonenumber, 12))){
-                        $failed = "Invalid Phone Number";
+                        $failed = "Phone number Must be between 8 to 12 Number";
                     }
                     else{
             
