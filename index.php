@@ -11,13 +11,13 @@
         $password = $_POST['password'];
         $gender = $_POST['radioGroup'];
         
-        if(!requiredInput($username) && !minInput($username, 5)){
-            $failed = "Invalid Username";
+        if(!(requiredInput($username) && minInput($username, 5))){
+            $failed = "Invaid Fullname";
         }
         else{
 
-            if(!requiredInput($fullname) && !minInput($fullname, 5)){
-                $failed = "Invaid Fullname";
+            if(!(requiredInput($fullname) && minInput($fullname, 5))){
+                $failed = "Invalid Username";
             }
             else{
             
@@ -26,12 +26,12 @@
                 }
                 else{
             
-                    if(!minInput($phonenumber, 8) && !maxInput($phonenumber, 12)){
+                    if(!(minInput($phonenumber, 8) && maxInput($phonenumber, 12))){
                         $failed = "Invalid Phone Number";
                     }
                     else{
             
-                        if(!minInput($password, 8) && !maxInput($password, 20)){
+                        if(!(minInput($password, 8) && maxInput($password, 20))){
                             $failed = "Password Must be between 8 to 20 character";
                         }
                         else {
